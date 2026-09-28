@@ -1,0 +1,37 @@
+/* home.css */
+
+/* Extraer el efecto Grain del código React para mantener el TSX más limpio */
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='[http://www.w3.org/2000/svg'%3E%3Cfilter](http://www.w3.org/2000/svg'%3E%3Cfilter) id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  background-repeat: repeat;
+}
+
+/* Tipografía masiva de fondo (FORTRESS) */
+.fortress-ghost-text {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(90px, 28vw, 380px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Títulos con tipografía Anton */
+.anton-title {
+  font-family: 'Anton', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* Enlace inferior derecho (CONÓCENOS) */
+.fortress-link-text {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(20px, 4vw, 56px);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* Transiciones comunes */
+.carousel-image {
+  will-change: transform, filter, opacity;
+}

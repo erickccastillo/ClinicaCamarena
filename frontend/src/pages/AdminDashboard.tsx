@@ -1,0 +1,203 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useFetchProducts } from '../hooks/useFetchProducts';
+import SearchBar from '../components/SearchBar';
+
+const AdminDashboard: React.FC = () => {
+  const [query, setQuery] = useState('');
+  
+  // Reutilizamos tu hook del catálogo.
+  const { products, loading, error } = useFetchProducts({
+    page: 1,
+    q: query,
+    category: 'TODOS',
+  });
+
+  const handleLogout = () => {
+    localStorage.removeItem("adminToken");
+    window.location.href = "/login";
+  };
+
+  // Función para manejar la eliminación
+  const handleDelete = async (id: string, name: string) => {
+    const confirmDelete = window.confirm(`¿Estás seguro de que deseas eliminar la prenda "${name}"? Esta acción no se puede deshacer.`);
+    
+    if (confirmDelete) {
+      try {
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+        
+        // Llamada a la API para eliminar
+        const response = await fetch(`${apiUrl}/api/clothes/${id}`, {
+          method: 'DELETE',
+        });
+
+        if (!response.ok) {
+          throw new Error('Error al eliminar la prenda');
+        }
+
+        alert('Prenda eliminada con éxito');
+        
+        // Recargar la página para actualizar la lista. 
+        window.location.reload(); 
+        
+      } catch (error) {
+        console.error("Error eliminando:", error);
+        alert('Hubo un problema al intentar eliminar la prenda.');
+      }
+    }
+  };
+
+  return (
+    <div style={{ background: '#111', minHeight: '100vh', color: '#eee', paddingBottom: '3rem' }}>
+      <div style={{ padding: '2rem', paddingTop: '120px', maxWidth: '1200px', margin: '0 auto' }}>
+        
+        {/* Header del Dashboard */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
+          <h2 style={{ fontFamily: 'Anton', fontSize: '2.5rem', color: '#fff', margin: 0, textTransform: 'uppercase', letterSpacing: '1px' }}>
+            Inventario Fortress
+          </h2>
+          
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <Link 
+              to="/admin/new" 
+              style={{ 
+                backgroundColor: '#fff', color: '#000', padding: '0.75rem 1.5rem', 
+                borderRadius: '8px', textDecoration: 'none', fontWeight: 'bold',
+                textTransform: 'uppercase', fontSize: '0.9rem'
+              }}
+            >
+              + Nueva Prenda
+            </Link>
+            
+            <button
+              onClick={handleLogout}
+              style={{
+                backgroundColor: "transparent",
+                color: "#ff4444",
+                border: "1px solid #ff4444",
+                borderRadius: "8px",
+                padding: "0.75rem 1.5rem",
+                cursor: "pointer",
+                fontWeight: 'bold',
+                textTransform: 'uppercase',
+                fontSize: '0.9rem'
+              }}
+            >
+              Salir
+            </button> 
+          </div>
+        </div>
+
+        {/* Buscador */}
+        <div style={{ marginBottom: '2rem', maxWidth: '500px' }}>
+          <SearchBar 
+            value={query} 
+            onChange={(v) => setQuery(v)} 
+          />
+          <p style={{ fontSize: '0.9rem', color: '#888', marginTop: '8px' }}>
+            Escribe el nombre de la prenda para buscarla rápidamente.
+          </p>
+        </div>
+
+        {loading && <p style={{ color: '#fff' }}>Cargando inventario...</p>}
+        {error && <p style={{ color: '#ff4444' }}>Error: {error}</p>}
+
+        {/* Tabla de Productos adaptada a ropa */}
+        {!loading && !error && (
+          <div style={{ overflowX: 'auto', backgroundColor: '#1a1a1a', borderRadius: '12px', border: '1px solid #333' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+              <thead>
+                <tr style={{ backgroundColor: '#222', borderBottom: '1px solid #444', color: '#aaa', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                  <th style={{ padding: '1.2rem 1rem' }}>Foto</th>
+                  <th style={{ padding: '1.2rem 1rem' }}>Prenda</th>
+                  <th style={{ padding: '1.2rem 1rem' }}>Categoría</th>
+                  <th style={{ padding: '1.2rem 1rem' }}>Talla</th>
+                  <th style={{ padding: '1.2rem 1rem' }}>Color</th>
+                  <th style={{ padding: '1.2rem 1rem' }}>Precio</th>
+                  <th style={{ padding: '1.2rem 1rem', textAlign: 'center' }}>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                {products.length === 0 ? (
+                  <tr>
+                    <td colSpan={7} style={{ padding: '3rem', textAlign: 'center', color: '#666' }}>
+                      No se encontraron prendas en el inventario.
+                    </td>
+                  </tr>
+                ) : (
+                  products.map((product) => (
+                    <tr key={product.id} style={{ borderBottom: '1px solid #333', transition: 'background 0.2s' }}>
+                      <td style={{ padding: '1rem' }}>
+                        {/* Mostrar la primera imagen del arreglo image_urls, o una por defecto si no hay */}
+                        <img 
+                          src={product.image_urls && product.image_urls.length > 0 ? product.image_urls[0] : 'https://placehold.co/100x100/222/ccc?text=No+Foto'} 
+                          alt={product.name} 
+                          style={{ width: '60px', height: '60px', objectFit: 'cover', borderRadius: '8px', border: '1px solid #444' }} 
+                        />
+                      </td>
+                      <td style={{ padding: '1rem', fontWeight: 'bold', color: '#fff' }}>{product.name}</td>
+                      <td style={{ padding: '1rem', color: '#aaa' }}>{product.category}</td>
+                      <td style={{ padding: '1rem', fontWeight: 'bold' }}>{product.size || '-'}</td>
+                      <td style={{ padding: '1rem' }}>{product.color || '-'}</td>
+                      <td style={{ padding: '1rem', color: '#fff', fontWeight: 'bold' }}>${product.price}</td>
+                      <td style={{ padding: '1rem', textAlign: 'center', verticalAlign: 'middle' }}>
+                        
+                        {/* Contenedor para alinear los botones de Editar y Eliminar */}
+                        <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center' }}>
+                          
+                          {/* Botón Editar */}
+                          <Link
+                            to={`/admin/edit/${product.id}`}
+                            style={{
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              backgroundColor: '#fff',
+                              color: '#000',
+                              padding: '0.5rem 1rem',
+                              borderRadius: '6px',
+                              textDecoration: 'none',
+                              fontWeight: 'bold',
+                              fontSize: '0.85rem',
+                              textTransform: 'uppercase'
+                            }}
+                          >
+                            Editar 
+                          </Link>
+
+                          {/* Botón Eliminar */}
+                          <button
+                            onClick={() => handleDelete(product.id, product.name)}
+                            style={{
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              backgroundColor: '#ff4444', // Rojo llamativo
+                              color: '#fff',
+                              padding: '0.5rem 1rem',
+                              borderRadius: '6px',
+                              border: 'none',
+                              cursor: 'pointer',
+                              fontWeight: 'bold',
+                              fontSize: '0.85rem',
+                              textTransform: 'uppercase'
+                            }}
+                          >
+                            Borrar
+                          </button>
+                        </div>
+
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default AdminDashboard;

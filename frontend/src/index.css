@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.custom-shadow-ambient {
+  box-shadow: 0 4px 16px -2px rgba(13, 124, 122, 0.04), 0 12px 32px -4px rgba(74, 85, 104, 0.06);
+}
+
+.custom-shadow-glow {
+  box-shadow: 0 16px 40px -6px rgba(0, 85, 143, 0.08), 0 2px 6px 0 rgba(0, 0, 0, 0.02);
+}
