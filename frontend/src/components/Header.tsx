@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
         <nav className="hidden md:flex items-center space-x-8">
           <a className="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#servicios">Servicios</a>
           <a className="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#doctor">Sobre el Doctor</a>
-          <a className="text-label-md font-label-md text-primary font-bold border-b-2 border-primary pb-1" href="#cotizador">Calculadora</a>
+          <a className="text-label-md font-label-md text-primary font-bold border-b-2 border-primary pb-1" href="#cotizador">Formulario</a>
           <a className="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#ubicacion">Ubicación</a>
         </nav>
 
