@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from './components/Header';
+import { Header } from '../components/Header';
 
 const App: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
