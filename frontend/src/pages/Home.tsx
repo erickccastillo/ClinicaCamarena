@@ -1,7 +1,6 @@
 import React from 'react';
-import { Header } from '../components/Header';
 
-const App: React.FC = () => {
+const Home: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     alert('¡Gracias! En breve nos pondremos en contacto contigo.');
@@ -9,383 +8,379 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Header />
-      
-      <main>
-        {/* HERO SECTION */}
-        <section className="relative pt-12 pb-24 md:py-20 overflow-hidden bg-gradient-to-b from-surface to-surface-container-low/40" id="inicio">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-7 space-y-8">
-                <h1 className="text-display-hero font-display-hero text-on-surface tracking-tight">
-                  Tu sonrisa ideal en manos de un especialista.
-                </h1>
-                <p className="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">
-                  Diseño de sonrisa digital, odontología mínimamente invasiva y protocolos sin dolor diseñados para devolverte la armonía estética y la salud funcional definitiva.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
-                  <a className="inline-flex justify-center items-center px-8 py-4 rounded-full bg-primary text-on-primary text-label-md font-label-md hover:bg-tertiary shadow-md hover:shadow-lg transition-all active:scale-95" href="#cotizador">
-                    Cotizar Tratamiento
-                    <span className="material-symbols-outlined ml-2 text-[18px]">arrow_forward</span>
-                  </a>
-                  <a className="inline-flex justify-center items-center px-6 py-4 rounded-full border border-primary text-primary hover:bg-primary/5 transition-all text-label-md font-label-md group" href="https://wa.me/523781181889" rel="noopener noreferrer" target="_blank">
-                    <span className="material-symbols-outlined mr-2 text-[20px] text-primary">chat</span>
-                    <span>WhatsApp 378 118 1889</span>
-                  </a>
-                </div>
-              </div>
+      {/* ==================== 1. HERO SECTION ==================== */}
+      <section className="relative pt-12 pb-24 md:py-20 overflow-hidden bg-gradient-to-b from-surface to-surface-container-low/40" id="inicio">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 space-y-8">
+              <h1 className="text-display-hero font-display-hero text-on-surface tracking-tight">
+                Tu sonrisa ideal en manos de un especialista.
+              </h1>
+              <p className="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">
+                Diseño de sonrisa digital, odontología mínimamente invasiva y protocolos sin dolor diseñados para devolverte la armonía estética y la salud funcional definitiva.
+              </p>
               
-              <div className="lg:col-span-5 relative">
-                <div className="relative mx-auto max-w-md lg:max-w-none">
-                  <div className="absolute -inset-4 bg-gradient-to-tr from-primary-fixed/40 to-secondary-fixed/30 rounded-3xl filter blur-2xl opacity-60"></div>
-                  <div className="relative rounded-2xl overflow-hidden custom-shadow-ambient border border-outline-variant/40 bg-surface-container-lowest">
-                    <img className="w-full h-[460px] object-cover" alt="Dr. Gabriel Ruiz" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtfCzd5LGwnyGupL0_2ne82JKmE8sMeCzdk6oMqtXuabYaXZ4ZTtaMRlla7ZXd6R_yjDixXy7CYXgtBKwgwzY6TCVjjdT1l5xfGU35mj9WIKztZcfmzoS-JXWpK0s5Ad0OaVESUGTuULRt4HClniuvl6g3aVXA7_pnlZSxrdOfVQVN2Wz-pqzHRQYeORCbaD4YmNC0CVSx-QTzN0HTRcIg3whj03v4ySZjO9dzQYFkpay7oFqrnPw-" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent"></div>
-                    <div className="absolute bottom-6 left-6 right-6 text-on-primary">
-                      <p className="text-title-md font-title-md font-bold">C. D. Oliver Camarena</p>
-                      <p className="text-body-sm font-body-sm text-surface-container-high">Odontología Integral Estética</p>
-                    </div>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                <a className="inline-flex justify-center items-center px-8 py-4 rounded-full bg-primary text-on-primary text-label-md font-label-md hover:bg-tertiary shadow-md hover:shadow-lg transition-all active:scale-95" href="#cotizador">
+                  Cotizar Tratamiento
+                  <span className="material-symbols-outlined ml-2 text-[18px]">arrow_forward</span>
+                </a>
+                <a className="inline-flex justify-center items-center px-6 py-4 rounded-full border border-primary text-primary hover:bg-primary/5 transition-all text-label-md font-label-md group" href="https://wa.me/523781181889" rel="noopener noreferrer" target="_blank">
+                  <span className="material-symbols-outlined mr-2 text-[20px] text-primary">chat</span>
+                  <span>WhatsApp 378 118 1889</span>
+                </a>
+              </div>
+            </div>
+            
+            <div className="lg:col-span-5 relative">
+              <div className="relative mx-auto max-w-md lg:max-w-none">
+                <div className="absolute -inset-4 bg-gradient-to-tr from-primary-fixed/40 to-secondary-fixed/30 rounded-3xl filter blur-2xl opacity-60"></div>
+                <div className="relative rounded-2xl overflow-hidden custom-shadow-ambient border border-outline-variant/40 bg-surface-container-lowest">
+                  <img className="w-full h-[460px] object-cover" alt="Dr. Gabriel Ruiz" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtfCzd5LGwnyGupL0_2ne82JKmE8sMeCzdk6oMqtXuabYaXZ4ZTtaMRlla7ZXd6R_yjDixXy7CYXgtBKwgwzY6TCVjjdT1l5xfGU35mj9WIKztZcfmzoS-JXWpK0s5Ad0OaVESUGTuULRt4HClniuvl6g3aVXA7_pnlZSxrdOfVQVN2Wz-pqzHRQYeORCbaD4YmNC0CVSx-QTzN0HTRcIg3whj03v4ySZjO9dzQYFkpay7oFqrnPw-" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-6 left-6 right-6 text-on-primary">
+                    <p className="text-title-md font-title-md font-bold">C. D. Oliver Camarena</p>
+                    <p className="text-body-sm font-body-sm text-surface-container-high">Odontología Integral Estética</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* SERVICIOS */}
-        <section className="py-24 bg-surface-container-lowest border-y border-outline-variant/30" id="servicios">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-              <h2 className="text-headline-lg font-headline-lg text-on-surface">Excelencia en cada detalle clínico</h2>
-              <p className="text-body-md font-body-md text-on-surface-variant">
-                Protocolos mínimamente invasivos con tecnología de escaneo 3D y materiales cerámicos bio-compatibles de vanguardia.
-              </p>
+      {/* ==================== 2. SERVICIOS ==================== */}
+      <section className="py-24 bg-surface-container-lowest border-y border-outline-variant/30" id="servicios">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+            <h2 className="text-headline-lg font-headline-lg text-on-surface">Excelencia en cada detalle clínico</h2>
+            <p className="text-body-md font-body-md text-on-surface-variant">
+              Protocolos mínimamente invasivos con tecnología de escaneo 3D y materiales cerámicos bio-compatibles de vanguardia.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div className="group bg-surface rounded-xl p-6 border border-outline-variant/40 custom-shadow-ambient hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+              <div className="space-y-4">
+                <h3 className="text-title-md font-title-md text-on-surface font-bold">Diseño de Sonrisa & Carillas</h3>
+                <p className="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                  Carillas de porcelana ultrafinas diseñadas digitalmente según tus proporciones faciales. Corrección de tono, alineación y desgaste sin tallado agresivo.
+                </p>
+              </div>
+              <div className="pt-6 mt-6 border-t border-outline-variant/20 flex items-center justify-between">
+                <span className="text-label-sm font-label-sm text-primary font-bold">Duración: 2 a 3 citas</span>
+                <a className="text-label-md font-label-md text-primary hover:text-tertiary inline-flex items-center font-bold" href="#cotizador">
+                  Cotizar <span className="material-symbols-outlined ml-1 text-[16px]">chevron_right</span>
+                </a>
+              </div>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Card 1 */}
-              <div className="group bg-surface rounded-xl p-6 border border-outline-variant/40 custom-shadow-ambient hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                <div className="space-y-4">
-                  <h3 className="text-title-md font-title-md text-on-surface font-bold">Diseño de Sonrisa & Carillas</h3>
-                  <p className="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
-                    Carillas de porcelana ultrafinas diseñadas digitalmente según tus proporciones faciales. Corrección de tono, alineación y desgaste sin tallado agresivo.
-                  </p>
-                </div>
-                <div className="pt-6 mt-6 border-t border-outline-variant/20 flex items-center justify-between">
-                  <span className="text-label-sm font-label-sm text-primary font-bold">Duración: 2 a 3 citas</span>
-                  <a className="text-label-md font-label-md text-primary hover:text-tertiary inline-flex items-center font-bold" href="#cotizador">
-                    Cotizar <span className="material-symbols-outlined ml-1 text-[16px]">chevron_right</span>
-                  </a>
-                </div>
-              </div>
 
-              {/* Card 2 */}
-              <div className="group bg-surface rounded-xl p-6 border border-outline-variant/40 custom-shadow-ambient hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                <div className="space-y-4">
-                  <h3 className="text-title-md font-title-md text-on-surface font-bold">Ortodoncia Invisible</h3>
-                  <p className="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
-                    Alineadores transparentes cómodos y removibles. Corrige apiñamiento y mordidas sin brackets metálicos y visualiza tus resultados finales antes de iniciar.
-                  </p>
-                </div>
-                <div className="pt-6 mt-6 border-t border-outline-variant/20 flex items-center justify-between">
-                  <span className="text-label-sm font-label-sm text-primary font-bold">100% Removible y Discreto</span>
-                  <a className="text-label-md font-label-md text-primary hover:text-tertiary inline-flex items-center font-bold" href="#cotizador">
-                    Cotizar <span className="material-symbols-outlined ml-1 text-[16px]">chevron_right</span>
-                  </a>
-                </div>
+            {/* Card 2 */}
+            <div className="group bg-surface rounded-xl p-6 border border-outline-variant/40 custom-shadow-ambient hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+              <div className="space-y-4">
+                <h3 className="text-title-md font-title-md text-on-surface font-bold">Ortodoncia Invisible</h3>
+                <p className="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                  Alineadores transparentes cómodos y removibles. Corrige apiñamiento y mordidas sin brackets metálicos y visualiza tus resultados finales antes de iniciar.
+                </p>
               </div>
-
-              {/* Card 3 */}
-              <div className="group bg-surface rounded-xl p-6 border border-outline-variant/40 custom-shadow-ambient hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                <div className="space-y-4">
-                  <h3 className="text-title-md font-title-md text-on-surface font-bold">Blanqueamiento Láser Clínico</h3>
-                  <p className="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
-                    Aclara hasta 6 tonos en una sola sesión de 60 minutos. Fórmula controlada de pH neutro que previene la hipersensibilidad post-tratamiento.
-                  </p>
-                </div>
-                <div className="pt-6 mt-6 border-t border-outline-variant/20 flex items-center justify-between">
-                  <span className="text-label-sm font-label-sm text-primary font-bold">Sesión Única de 60 min</span>
-                  <a className="text-label-md font-label-md text-primary hover:text-tertiary inline-flex items-center font-bold" href="#cotizador">
-                    Cotizar <span className="material-symbols-outlined ml-1 text-[16px]">chevron_right</span>
-                  </a>
-                </div>
+              <div className="pt-6 mt-6 border-t border-outline-variant/20 flex items-center justify-between">
+                <span className="text-label-sm font-label-sm text-primary font-bold">100% Removible y Discreto</span>
+                <a className="text-label-md font-label-md text-primary hover:text-tertiary inline-flex items-center font-bold" href="#cotizador">
+                  Cotizar <span className="material-symbols-outlined ml-1 text-[16px]">chevron_right</span>
+                </a>
               </div>
+            </div>
 
-              {/* Card 4 */}
-              <div className="group bg-surface rounded-xl p-6 border border-outline-variant/40 custom-shadow-ambient hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                <div className="space-y-4">
-                  <h3 className="text-title-md font-title-md text-on-surface font-bold">Implantes & Rehabilitación</h3>
-                  <p className="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
-                    Restauración completa de piezas dentales perdidas mediante implantes de titanio y coronas de zirconio computarizadas para masticación natural.
-                  </p>
-                </div>
-                <div className="pt-6 mt-6 border-t border-outline-variant/20 flex items-center justify-between">
-                  <span className="text-label-sm font-label-sm text-primary font-bold">Garantía Estructural</span>
-                  <a className="text-label-md font-label-md text-primary hover:text-tertiary inline-flex items-center font-bold" href="#cotizador">
-                    Cotizar <span className="material-symbols-outlined ml-1 text-[16px]">chevron_right</span>
-                  </a>
-                </div>
+            {/* Card 3 */}
+            <div className="group bg-surface rounded-xl p-6 border border-outline-variant/40 custom-shadow-ambient hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+              <div className="space-y-4">
+                <h3 className="text-title-md font-title-md text-on-surface font-bold">Blanqueamiento Láser Clínico</h3>
+                <p className="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                  Aclara hasta 6 tonos en una sola sesión de 60 minutos. Fórmula controlada de pH neutro que previene la hipersensibilidad post-tratamiento.
+                </p>
               </div>
-
-              {/* Card 5 */}
-              <div className="group bg-surface rounded-xl p-6 border border-outline-variant/40 custom-shadow-ambient hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
-                <div className="space-y-4">
-                  <h3 className="text-title-md font-title-md text-on-surface font-bold">Profilaxis & Limpieza Profunda</h3>
-                  <p className="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
-                    Protocolo guiado por ultrasonido y aeropulido con partículas de glicina. Eliminación integral de manchas y sarro subgingival protegiendo el esmalte.
-                  </p>
-                </div>
-                <div className="pt-6 mt-6 border-t border-outline-variant/20 flex items-center justify-between">
-                  <span className="text-label-sm font-label-sm text-primary font-bold">Cuidado Preventivo</span>
-                  <a className="text-label-md font-label-md text-primary hover:text-tertiary inline-flex items-center font-bold" href="#cotizador">
-                    Cotizar <span className="material-symbols-outlined ml-1 text-[16px]">chevron_right</span>
-                  </a>
-                </div>
+              <div className="pt-6 mt-6 border-t border-outline-variant/20 flex items-center justify-between">
+                <span className="text-label-sm font-label-sm text-primary font-bold">Sesión Única de 60 min</span>
+                <a className="text-label-md font-label-md text-primary hover:text-tertiary inline-flex items-center font-bold" href="#cotizador">
+                  Cotizar <span className="material-symbols-outlined ml-1 text-[16px]">chevron_right</span>
+                </a>
               </div>
+            </div>
 
-              {/* Card 6: Interactive Callout */}
-              <div className="bg-gradient-to-br from-primary to-tertiary rounded-xl p-6 text-on-primary flex flex-col justify-between custom-shadow-ambient">
-                <div className="space-y-4">
-                  <span className="inline-block px-3 py-1 rounded-full bg-on-primary/10 text-on-primary-container text-label-sm font-label-sm font-bold">Plan Personalizado</span>
-                  <h3 className="text-headline-sm font-headline-sm font-bold">¿No estás seguro de cuál necesitas?</h3>
-                  <p className="text-body-sm font-body-sm text-surface-container-high opacity-90">
-                    Agenda tu cita de valoración inicial con escáner 3D y recibe un diagnóstico completo sin compromiso.
-                  </p>
-                </div>
-                <div className="pt-6">
-                  <a className="inline-flex w-full justify-center items-center py-3 rounded-full bg-surface-container-lowest text-primary font-label-md text-label-md hover:bg-surface-container transition-colors font-bold shadow-sm" href="#cotizador">
-                    Agendar Valoración 3D
-                  </a>
-                </div>
+            {/* Card 4 */}
+            <div className="group bg-surface rounded-xl p-6 border border-outline-variant/40 custom-shadow-ambient hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+              <div className="space-y-4">
+                <h3 className="text-title-md font-title-md text-on-surface font-bold">Implantes & Rehabilitación</h3>
+                <p className="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                  Restauración completa de piezas dentales perdidas mediante implantes de titanio y coronas de zirconio computarizadas para masticación natural.
+                </p>
+              </div>
+              <div className="pt-6 mt-6 border-t border-outline-variant/20 flex items-center justify-between">
+                <span className="text-label-sm font-label-sm text-primary font-bold">Garantía Estructural</span>
+                <a className="text-label-md font-label-md text-primary hover:text-tertiary inline-flex items-center font-bold" href="#cotizador">
+                  Cotizar <span className="material-symbols-outlined ml-1 text-[16px]">chevron_right</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="group bg-surface rounded-xl p-6 border border-outline-variant/40 custom-shadow-ambient hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+              <div className="space-y-4">
+                <h3 className="text-title-md font-title-md text-on-surface font-bold">Profilaxis & Limpieza Profunda</h3>
+                <p className="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                  Protocolo guiado por ultrasonido y aeropulido con partículas de glicina. Eliminación integral de manchas y sarro subgingival protegiendo el esmalte.
+                </p>
+              </div>
+              <div className="pt-6 mt-6 border-t border-outline-variant/20 flex items-center justify-between">
+                <span className="text-label-sm font-label-sm text-primary font-bold">Cuidado Preventivo</span>
+                <a className="text-label-md font-label-md text-primary hover:text-tertiary inline-flex items-center font-bold" href="#cotizador">
+                  Cotizar <span className="material-symbols-outlined ml-1 text-[16px]">chevron_right</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Card 6: Interactive Callout */}
+            <div className="bg-gradient-to-br from-primary to-tertiary rounded-xl p-6 text-on-primary flex flex-col justify-between custom-shadow-ambient">
+              <div className="space-y-4">
+                <span className="inline-block px-3 py-1 rounded-full bg-on-primary/10 text-on-primary-container text-label-sm font-label-sm font-bold">Plan Personalizado</span>
+                <h3 className="text-headline-sm font-headline-sm font-bold">¿No estás seguro de cuál necesitas?</h3>
+                <p className="text-body-sm font-body-sm text-surface-container-high opacity-90">
+                  Agenda tu cita de valoración inicial con escáner 3D y recibe un diagnóstico completo sin compromiso.
+                </p>
+              </div>
+              <div className="pt-6">
+                <a className="inline-flex w-full justify-center items-center py-3 rounded-full bg-surface-container-lowest text-primary font-label-md text-label-md hover:bg-surface-container transition-colors font-bold shadow-sm" href="#cotizador">
+                  Agendar Valoración 3D
+                </a>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CONOCE AL DOCTOR */}
-        <section className="py-24 bg-surface" id="doctor">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-5 space-y-6">
-                <div className="relative rounded-2xl overflow-hidden border border-outline-variant/40 custom-shadow-ambient">
-                  <img className="w-full h-[520px] object-cover" alt="Doctor Gabriel Ruiz" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkXHVD6WsGPxvZlVhpKwvrq0yRR0tnj2Ht4DJTCCvogQQ1h7fPRJtsda_60nvlhSmiWbQ9MMbZyCKVzzME-4Tt4YIA_KhnKiloFd2e4YKRDiSyR0DWKW3U3GyCwRJpZe0KMJ2pGOOPh3wuND1UM1g1pS3Dd_okmN1FR3_iGCNDusKzLCmF2aNm-agSglMYuGVBUjECPXSYMOQOR4R0WuoXWkPiR9GK3bsKU4zcOrnpefPi383TBns5" />
+      {/* ==================== 3. CONOCE AL DOCTOR ==================== */}
+      <section className="py-24 bg-surface" id="doctor">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-5 space-y-6">
+              <div className="relative rounded-2xl overflow-hidden border border-outline-variant/40 custom-shadow-ambient">
+                <img className="w-full h-[520px] object-cover" alt="Doctor Gabriel Ruiz" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkXHVD6WsGPxvZlVhpKwvrq0yRR0tnj2Ht4DJTCCvogQQ1h7fPRJtsda_60nvlhSmiWbQ9MMbZyCKVzzME-4Tt4YIA_KhnKiloFd2e4YKRDiSyR0DWKW3U3GyCwRJpZe0KMJ2pGOOPh3wuND1UM1g1pS3Dd_okmN1FR3_iGCNDusKzLCmF2aNm-agSglMYuGVBUjECPXSYMOQOR4R0WuoXWkPiR9GK3bsKU4zcOrnpefPi383TBns5" />
+              </div>
+            </div>
+            <div className="lg:col-span-7 space-y-6">
+              <h2 className="text-headline-lg font-headline-lg text-on-surface">C. D. Oliver Camarena: Odontología Integral Estética y Cuidado Humanizado</h2>
+              <p className="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                Especialista enfocado en odontología integral y estética dental, el C. D. Oliver Camarena combina precisión clínica y tecnología avanzada con un trato personalizado, cálido y libre de estrés.
+              </p>
+              <p className="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                Especialmente capacitado para atender a pacientes con aprehensión o fobia al dentista, su consulta está diseñada para transformar una cita odontológica en una experiencia de bienestar relajante.
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="flex items-start space-x-3">
+                  <span className="material-symbols-outlined text-primary text-[20px] mt-0.5">school</span>
+                  <div>
+                    <p className="text-label-md font-label-md text-on-surface font-bold">Especialidad en Rehabilitación Oral</p>
+                    <p className="text-body-sm font-body-sm text-on-surface-variant">Universidad Nacional Autónoma de México</p>
+                  </div>
                 </div>
               </div>
-              <div className="lg:col-span-7 space-y-6">
-                <h2 className="text-headline-lg font-headline-lg text-on-surface">C. D. Oliver Camarena: Odontología Integral Estética y Cuidado Humanizado</h2>
-                <p className="text-body-md font-body-md text-on-surface-variant leading-relaxed">
-                  Especialista enfocado en odontología integral y estética dental, el C. D. Oliver Camarena combina precisión clínica y tecnología avanzada con un trato personalizado, cálido y libre de estrés.
-                </p>
-                <p className="text-body-md font-body-md text-on-surface-variant leading-relaxed">
-                  Especialmente capacitado para atender a pacientes con aprehensión o fobia al dentista, su consulta está diseñada para transformar una cita odontológica en una experiencia de bienestar relajante.
-                </p>
+
+              <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <a className="inline-flex items-center space-x-3 px-5 py-3 rounded-full bg-surface-container-lowest border border-outline-variant/60 hover:border-primary text-on-surface hover:text-primary transition-all duration-200 custom-shadow-ambient" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+                  <span className="material-symbols-outlined text-[20px] text-primary">photo_camera</span>
+                  <span className="text-label-md font-label-md font-bold">@olivercamarena.dental</span>
+                  <span className="text-body-sm font-body-sm text-on-surface-variant">| Ver casos clínicos y sonrisas</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== 4. FORMULARIO ==================== */}
+      <section className="py-24 bg-surface-container-low/60 border-t border-outline-variant/30" id="cotizador">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+            <h2 className="text-headline-lg font-headline-lg text-on-surface">Solicita tu cotización o agenda tu valoración</h2>
+            <p className="text-body-md font-body-md text-on-surface-variant">
+              Recibe un estimado personalizado y reserva tu espacio preferido en menos de un minuto.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-7 bg-surface-container-lowest p-8 md:p-10 rounded-2xl border border-outline-variant/40 custom-shadow-ambient">
+              <form className="space-y-6" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="block text-label-md font-label-md text-on-surface font-semibold" htmlFor="name">Nombre Completo *</label>
+                    <input className="w-full h-12 px-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" id="name" placeholder="Ej. Mariana Morales" required type="text" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="block text-label-md font-label-md text-on-surface font-semibold" htmlFor="phone">Teléfono / WhatsApp *</label>
+                    <input className="w-full h-12 px-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" id="phone" placeholder="Ej. +52 55 1234 5678" required type="tel" />
+                  </div>
+                </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                  <div className="flex items-start space-x-3">
-                    <span className="material-symbols-outlined text-primary text-[20px] mt-0.5">school</span>
-                    <div>
-                      <p className="text-label-md font-label-md text-on-surface font-bold">Especialidad en Rehabilitación Oral</p>
-                      <p className="text-body-sm font-body-sm text-on-surface-variant">Universidad Nacional Autónoma de México</p>
-                    </div>
-                  </div>
+                <div className="space-y-2">
+                  <label className="block text-label-md font-label-md text-on-surface font-semibold" htmlFor="email">Correo Electrónico</label>
+                  <input className="w-full h-12 px-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" id="email" placeholder="mariana@ejemplo.com" type="email" />
                 </div>
 
-                <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                  <a className="inline-flex items-center space-x-3 px-5 py-3 rounded-full bg-surface-container-lowest border border-outline-variant/60 hover:border-primary text-on-surface hover:text-primary transition-all duration-200 custom-shadow-ambient" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
-                    <span className="material-symbols-outlined text-[20px] text-primary">photo_camera</span>
-                    <span className="text-label-md font-label-md font-bold">@olivercamarena.dental</span>
-                    <span className="text-body-sm font-body-sm text-on-surface-variant">| Ver casos clínicos y sonrisas</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FORMULARIO E INTERACTIVO */}
-        <section className="py-24 bg-surface-container-low/60 border-t border-outline-variant/30" id="cotizador">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-              <h2 className="text-headline-lg font-headline-lg text-on-surface">Solicita tu cotización o agenda tu valoración</h2>
-              <p className="text-body-md font-body-md text-on-surface-variant">
-                Recibe un estimado personalizado y reserva tu espacio preferido en menos de un minuto.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              <div className="lg:col-span-7 bg-surface-container-lowest p-8 md:p-10 rounded-2xl border border-outline-variant/40 custom-shadow-ambient">
-                <form className="space-y-6" onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="block text-label-md font-label-md text-on-surface font-semibold" htmlFor="name">Nombre Completo *</label>
-                      <input className="w-full h-12 px-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" id="name" placeholder="Ej. Mariana Morales" required type="text" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="block text-label-md font-label-md text-on-surface font-semibold" htmlFor="phone">Teléfono / WhatsApp *</label>
-                      <input className="w-full h-12 px-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" id="phone" placeholder="Ej. +52 55 1234 5678" required type="tel" />
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <label className="block text-label-md font-label-md text-on-surface font-semibold" htmlFor="email">Correo Electrónico</label>
-                    <input className="w-full h-12 px-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" id="email" placeholder="mariana@ejemplo.com" type="email" />
-                  </div>
-
-                  <div className="space-y-3">
-                    <label className="block text-label-md font-label-md text-on-surface font-semibold">Tratamiento de Interés *</label>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-                      <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
-                        <input defaultChecked className="hidden" name="treatment" type="radio" value="diseno" />
-                        <span>Diseño de Sonrisa</span>
-                      </label>
-                      <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
-                        <input className="hidden" name="treatment" type="radio" value="ortodoncia" />
-                        <span>Ortodoncia Invisible</span>
-                      </label>
-                      <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
-                        <input className="hidden" name="treatment" type="radio" value="blanqueamiento" />
-                        <span>Blanqueamiento</span>
-                      </label>
-                      <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
-                        <input className="hidden" name="treatment" type="radio" value="implantes" />
-                        <span>Implantes Dentales</span>
-                      </label>
-                      <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
-                        <input className="hidden" name="treatment" type="radio" value="limpieza" />
-                        <span>Limpieza Dental</span>
-                      </label>
-                      <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
-                        <input className="hidden" name="treatment" type="radio" value="otro" />
-                        <span>Valoración General</span>
-                      </label>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="block text-label-md font-label-md text-on-surface font-semibold" htmlFor="comments">Comentarios o Dudas Adicionales</label>
-                    <textarea className="w-full p-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" id="comments" placeholder="Cuéntanos sobre tus objetivos o si experimentas alguna molestia..." rows={3}></textarea>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <input className="mt-1 w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant" id="privacy" required type="checkbox" />
-                    <label className="text-body-sm font-body-sm text-on-surface-variant" htmlFor="privacy">
-                      Acepto el tratamiento de mis datos de acuerdo con el aviso de privacidad de la clínica.
+                <div className="space-y-3">
+                  <label className="block text-label-md font-label-md text-on-surface font-semibold">Tratamiento de Interés *</label>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                    <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
+                      <input defaultChecked className="hidden" name="treatment" type="radio" value="diseno" />
+                      <span>Diseño de Sonrisa</span>
+                    </label>
+                    <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
+                      <input className="hidden" name="treatment" type="radio" value="ortodoncia" />
+                      <span>Ortodoncia Invisible</span>
+                    </label>
+                    <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
+                      <input className="hidden" name="treatment" type="radio" value="blanqueamiento" />
+                      <span>Blanqueamiento</span>
+                    </label>
+                    <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
+                      <input className="hidden" name="treatment" type="radio" value="implantes" />
+                      <span>Implantes Dentales</span>
+                    </label>
+                    <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
+                      <input className="hidden" name="treatment" type="radio" value="limpieza" />
+                      <span>Limpieza Dental</span>
+                    </label>
+                    <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
+                      <input className="hidden" name="treatment" type="radio" value="otro" />
+                      <span>Valoración General</span>
                     </label>
                   </div>
-
-                  <button className="w-full py-4 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-tertiary transition-all duration-200 shadow-md font-bold tracking-wide active:scale-98" type="submit">
-                    Enviar y Recibir Presupuesto
-                  </button>
-                </form>
-              </div>
-
-              <div className="lg:col-span-5 space-y-6">
-                <div className="bg-gradient-to-br from-primary-container to-primary p-8 rounded-2xl text-on-primary custom-shadow-ambient space-y-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 rounded-full bg-on-primary/10 flex items-center justify-center">
-                      <span className="material-symbols-outlined text-[26px]">chat</span>
-                    </div>
-                    <div>
-                      <h3 className="text-title-md font-title-md font-bold">¿Prefieres atención inmediata?</h3>
-                      <p className="text-body-sm font-body-sm text-surface-container-high opacity-90">Respuesta promedio en menos de 15 minutos</p>
-                    </div>
-                  </div>
-                  <p className="text-body-sm font-body-sm text-surface-container-high leading-relaxed">
-                    Envía tus preguntas o imágenes de referencia directamente a nuestro coordinador clínico para agendar con prioridad.
-                  </p>
-                  <a className="inline-flex w-full justify-center items-center py-4 rounded-full bg-surface-container-lowest text-primary text-label-md font-label-md font-bold hover:bg-surface-container transition-all active:scale-95 shadow-md" href="https://wa.me/523781181889" rel="noopener noreferrer" target="_blank">
-                    <span className="material-symbols-outlined mr-2 text-[20px]">chat</span>
-                    WhatsApp: 378 118 1889
-                  </a>
                 </div>
 
-                <div className="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/40 space-y-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-10 h-10 rounded-lg bg-surface-container-low text-primary flex items-center justify-center">
-                      <span className="material-symbols-outlined text-[22px]">call</span>
-                    </div>
-                    <div>
-                      <p className="text-label-sm font-label-sm text-on-surface-variant uppercase font-bold">Teléfono Consultorio</p>
-                      <p className="text-title-md font-title-md text-on-surface font-bold">+52 33 2902 2995</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-4 border-t border-outline-variant/20 pt-4">
-                    <div className="w-10 h-10 rounded-lg bg-surface-container-low text-primary flex items-center justify-center">
-                      <span className="material-symbols-outlined text-[22px]">chat</span>
-                    </div>
-                    <div>
-                      <p className="text-label-sm font-label-sm text-on-surface-variant uppercase font-bold">WhatsApp Directo</p>
-                      <p className="text-title-md font-title-md text-on-surface font-bold">+52 378 118 1889</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-4 border-t border-outline-variant/20 pt-4">
-                    <div className="w-10 h-10 rounded-lg bg-surface-container-low text-primary flex items-center justify-center">
-                      <span className="material-symbols-outlined text-[22px]">schedule</span>
-                    </div>
-                    <div>
-                      <p className="text-label-sm font-label-sm text-on-surface-variant uppercase font-bold">Horario de Consultas</p>
-                      <p className="text-body-sm font-body-sm text-on-surface">Lun - Vie: 09:00 - 19:00 | Sáb: 09:00 - 14:00</p>
-                    </div>
-                  </div>
+                <div className="space-y-2">
+                  <label className="block text-label-md font-label-md text-on-surface font-semibold" htmlFor="comments">Comentarios o Dudas Adicionales</label>
+                  <textarea className="w-full p-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" id="comments" placeholder="Cuéntanos sobre tus objetivos o si experimentas alguna molestia..." rows={3}></textarea>
                 </div>
-              </div>
+
+                <div className="flex items-start space-x-3">
+                  <input className="mt-1 w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant" id="privacy" required type="checkbox" />
+                  <label className="text-body-sm font-body-sm text-on-surface-variant" htmlFor="privacy">
+                    Acepto el tratamiento de mis datos de acuerdo con el aviso de privacidad de la clínica.
+                  </label>
+                </div>
+
+                <button className="w-full py-4 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-tertiary transition-all duration-200 shadow-md font-bold tracking-wide active:scale-98" type="submit">
+                  Enviar y Recibir Presupuesto
+                </button>
+              </form>
             </div>
-          </div>
-        </section>
 
-        {/* UBICACION Y HORARIOS */}
-        <section className="py-24 bg-surface" id="ubicacion">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-5 space-y-6">
-                <h2 className="text-headline-lg font-headline-lg text-on-surface">Instalaciones de Primer Nivel en Guadalajara</h2>
-                <p className="text-body-md font-body-md text-on-surface-variant leading-relaxed">
-                  Ubicados en una zona accesible de Guadalajara, Jalisco, equipados con la tecnología más avanzada y espacios diseñados para tu máximo confort y tranquilidad durante tu atención odontológica.
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-gradient-to-br from-primary-container to-primary p-8 rounded-2xl text-on-primary custom-shadow-ambient space-y-6">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 rounded-full bg-on-primary/10 flex items-center justify-center">
+                    <span className="material-symbols-outlined text-[26px]">chat</span>
+                  </div>
+                  <div>
+                    <h3 className="text-title-md font-title-md font-bold">¿Prefieres atención inmediata?</h3>
+                    <p className="text-body-sm font-body-sm text-surface-container-high opacity-90">Respuesta promedio en menos de 15 minutos</p>
+                  </div>
+                </div>
+                <p className="text-body-sm font-body-sm text-surface-container-high leading-relaxed">
+                  Envía tus preguntas o imágenes de referencia directamente a nuestro coordinador clínico para agendar con prioridad.
                 </p>
-                <div className="space-y-4 pt-2">
-                  <div className="flex items-start space-x-3.5">
-                    <span className="material-symbols-outlined text-primary text-[24px] mt-0.5">location_on</span>
-                    <div>
-                      <p className="text-label-md font-label-md text-on-surface font-bold">Dirección</p>
-                      <p className="text-body-sm font-body-sm text-on-surface-variant">Joaquín Angulo 1855, Guadalajara, Jalisco.</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="pt-4">
-                  <a className="inline-flex items-center space-x-2 text-label-md font-label-md text-primary font-bold hover:text-tertiary" href="https://maps.google.com" rel="noopener noreferrer" target="_blank">
-                    <span className="material-symbols-outlined text-[18px]">map</span>
-                    <span>Abrir en Google Maps</span>
-                  </a>
-                </div>
+                <a className="inline-flex w-full justify-center items-center py-4 rounded-full bg-surface-container-lowest text-primary text-label-md font-label-md font-bold hover:bg-surface-container transition-all active:scale-95 shadow-md" href="https://wa.me/523781181889" rel="noopener noreferrer" target="_blank">
+                  <span className="material-symbols-outlined mr-2 text-[20px]">chat</span>
+                  WhatsApp: 378 118 1889
+                </a>
               </div>
 
-              <div className="lg:col-span-7">
-                <div className="relative rounded-2xl overflow-hidden border border-outline-variant/40 custom-shadow-ambient h-[440px] bg-surface-container">
-                  <img className="w-full h-full object-cover" alt="Map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNTpx25uSTOBuiLxpCxM2jWjmQvdwg8FUYTtsL4rzZwECHMMZZYE3qNmbZ7QoFwe-PMkrS4BY40tZYWSRG5mSXpWTH2yt3bv9sSJ8jyCqffjB_O2De4jsFeuWJOJkTMOf5KdIecap6QFLlUjcQ_GXGFDvksEiw9aZTx5jJMXz4Xb7RKHW3UvzYmidRL-oY6Al17gzWJQKJYdPJ8DaEGcTCmxDxf-TC0k3WdoLR4ycUsMCNKeFWZKAT" />
-                  <div className="absolute bottom-6 left-6 right-6 md:right-auto md:w-80 bg-surface-container-lowest/95 backdrop-blur-md p-5 rounded-xl border border-outline-variant/40 custom-shadow-glow">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
-                        <span className="material-symbols-outlined text-[20px]">dentistry</span>
-                      </div>
-                      <div>
-                        <p className="text-label-md font-label-md font-bold text-on-surface">C. D. Oliver Camarena</p>
-                        <p className="text-body-sm font-body-sm text-primary">Joaquín Angulo 1855, GDL</p>
-                      </div>
-                    </div>
-                    <div className="mt-3 pt-3 border-t border-outline-variant/30 flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
-                      <span>Lun-Vie: 9am - 7pm</span>
-                      <span className="text-primary font-bold">Abierto hoy</span>
-                    </div>
+              <div className="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/40 space-y-4">
+                <div className="flex items-center space-x-4">
+                  <div className="w-10 h-10 rounded-lg bg-surface-container-low text-primary flex items-center justify-center">
+                    <span className="material-symbols-outlined text-[22px]">call</span>
+                  </div>
+                  <div>
+                    <p className="text-label-sm font-label-sm text-on-surface-variant uppercase font-bold">Teléfono Consultorio</p>
+                    <p className="text-title-md font-title-md text-on-surface font-bold">+52 33 2902 2995</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4 border-t border-outline-variant/20 pt-4">
+                  <div className="w-10 h-10 rounded-lg bg-surface-container-low text-primary flex items-center justify-center">
+                    <span className="material-symbols-outlined text-[22px]">chat</span>
+                  </div>
+                  <div>
+                    <p className="text-label-sm font-label-sm text-on-surface-variant uppercase font-bold">WhatsApp Directo</p>
+                    <p className="text-title-md font-title-md text-on-surface font-bold">+52 378 118 1889</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4 border-t border-outline-variant/20 pt-4">
+                  <div className="w-10 h-10 rounded-lg bg-surface-container-low text-primary flex items-center justify-center">
+                    <span className="material-symbols-outlined text-[22px]">schedule</span>
+                  </div>
+                  <div>
+                    <p className="text-label-sm font-label-sm text-on-surface-variant uppercase font-bold">Horario de Consultas</p>
+                    <p className="text-body-sm font-body-sm text-on-surface">Lun - Vie: 09:00 - 19:00 | Sáb: 09:00 - 14:00</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
 
-      {/* FLOATING WHATSAPP BUTTON */}
+      {/* ==================== 5. UBICACIÓN ==================== */}
+      <section className="py-24 bg-surface" id="ubicacion">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-5 space-y-6">
+              <h2 className="text-headline-lg font-headline-lg text-on-surface">Instalaciones de Primer Nivel en Guadalajara</h2>
+              <p className="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                Ubicados en una zona accesible de Guadalajara, Jalisco, equipados con la tecnología más avanzada y espacios diseñados para tu máximo confort y tranquilidad durante tu atención odontológica.
+              </p>
+              <div className="space-y-4 pt-2">
+                <div className="flex items-start space-x-3.5">
+                  <span className="material-symbols-outlined text-primary text-[24px] mt-0.5">location_on</span>
+                  <div>
+                    <p className="text-label-md font-label-md text-on-surface font-bold">Dirección</p>
+                    <p className="text-body-sm font-body-sm text-on-surface-variant">Joaquín Angulo 1855, Guadalajara, Jalisco.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="pt-4">
+                <a className="inline-flex items-center space-x-2 text-label-md font-label-md text-primary font-bold hover:text-tertiary" href="https://maps.google.com" rel="noopener noreferrer" target="_blank">
+                  <span className="material-symbols-outlined text-[18px]">map</span>
+                  <span>Abrir en Google Maps</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="relative rounded-2xl overflow-hidden border border-outline-variant/40 custom-shadow-ambient h-[440px] bg-surface-container">
+                <img className="w-full h-full object-cover" alt="Map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNTpx25uSTOBuiLxpCxM2jWjmQvdwg8FUYTtsL4rzZwECHMMZZYE3qNmbZ7QoFwe-PMkrS4BY40tZYWSRG5mSXpWTH2yt3bv9sSJ8jyCqffjB_O2De4jsFeuWJOJkTMOf5KdIecap6QFLlUjcQ_GXGFDvksEiw9aZTx5jJMXz4Xb7RKHW3UvzYmidRL-oY6Al17gzWJQKJYdPJ8DaEGcTCmxDxf-TC0k3WdoLR4ycUsMCNKeFWZKAT" />
+                <div className="absolute bottom-6 left-6 right-6 md:right-auto md:w-80 bg-surface-container-lowest/95 backdrop-blur-md p-5 rounded-xl border border-outline-variant/40 custom-shadow-glow">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
+                      <span className="material-symbols-outlined text-[20px]">dentistry</span>
+                    </div>
+                    <div>
+                      <p className="text-label-md font-label-md font-bold text-on-surface">C. D. Oliver Camarena</p>
+                      <p className="text-body-sm font-body-sm text-primary">Joaquín Angulo 1855, GDL</p>
+                    </div>
+                  </div>
+                  <div className="mt-3 pt-3 border-t border-outline-variant/30 flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant">
+                    <span>Lun-Vie: 9am - 7pm</span>
+                    <span className="text-primary font-bold">Abierto hoy</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== 6. FLOATING WHATSAPP BUTTON ==================== */}
       <div className="fixed bottom-6 right-6 z-50 flex items-center group">
         <div className="hidden md:flex mr-3 bg-surface-container-lowest px-4 py-2 rounded-full border border-outline-variant/40 shadow-lg text-label-sm font-label-sm text-on-surface items-center space-x-2 pointer-events-none group-hover:scale-105 transition-all">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
@@ -396,7 +391,7 @@ const App: React.FC = () => {
         </a>
       </div>
 
-      {/* FOOTER */}
+      {/* ==================== 7. FOOTER ==================== */}
       <footer className="full-width bg-surface-container-low border-t border-outline-variant/40 text-on-surface transition-all duration-200">
         <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="space-y-2 text-center md:text-left">
@@ -437,4 +432,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Home;
