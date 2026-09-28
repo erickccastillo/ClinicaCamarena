@@ -1,95 +1,84 @@
 import React, { useState } from 'react';
 
 export const Header: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
-      <div className="flex justify-between items-center max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20">
-
-        {/* Brand */}
-        <a href="#inicio" className="flex flext-sm md:text-headline-sm font-bold text-primary truncate">
-            C. D. Oliver Camarena
-          </span>
-          <span className="hidden sm:block text-[10px] md:text-label-sm uppercase tracking-wider text-on-surface-variant">
-            Odontología Integral Estética
-          </span>
+    <header className="docked full-width top-0 sticky z-50 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 shadow-sm transition-all duration-200">
+      <div className="flex justify-between items-center max-w-7xl mx-auto px-4 sm:px-6 h-20">
+        
+        {/* Brand Anchor */}
+        <a className="flex flex-col group truncate mr-2" href="#inicio" onClick={closeMenu}>
+          <span className="text-headline-sm font-headline-sm text-primary tracking-tight font-bold truncate">C. D. Oliver Camarena</span>
+          <span className="text-[10px] sm:text-label-sm font-label-sm text-on-surface-variant tracking-wider uppercase truncate">ODONTOLOGÍA INTEGRAL ESTÉTICA</span>
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation Links */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a
-            className="text-on-surface-variant hover:text-primary transition-colorsext-on-surface-variant hover:text-primary transition-colors"
-        mary font-bold border-b-2 border-        className="text-on-surface-variant hover:text-primary transition-colors"
-  s */}
-        <div className="hidden md:flex items-center space-x-3">
-          <a
-            href="https://wa.me/523781181889"
+          <a className="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#servicios">Servicios</a>
+          <a className="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#doctor">Sobre el Doctor</a>
+          <a className="text-label-md font-label-md text-primary font-bold border-b-2 border-primary pb-1" href="#cotizador">Formulario</a>
+          <a className="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors duration-200" href="#ubicacion">Ubicación</a>
+        </nav>
+
+        {/* Trailing Action Buttons */}
+        <div className="flex items-center space-x-2 sm:space-x-3">
+          {/* WhatsApp Action (Solo Desktop/Tablet) */}
+          <a 
+            className="hidden sm:flex items-center space-x-1.5 px-4 py-2 rounded-full border border-primary/20 text-primary hover:bg-primary/5 transition-all duration-200 text-label-md font-label-md" 
+            href="https://wa.me/523781181889" 
+            rel="noopener noreferrer" 
             target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center space-x-1.5 px-4 py-2 rounded-full border border-primary/20 text-primary hover:bg-primary/5 transition-all"
           >
-            <span className="material-symbols-outlined text-[18px]">
-              chat
-            </span>
+            <span className="material-symbols-outlined text-[18px]">chat</span>
             <span>WhatsApp</span>
           </a>
-
-          <a
+          
+          {/* Primary Booking Action */}
+          <a 
+            className="inline-flex items-center space-x-1 sm:space-x-2 bg-primary-container hover:bg-primary text-on-primary px-3 py-2 sm:px-5 sm:py-2.5 rounded-full transition-all duration-200 text-label-md font-label-md shadow-sm active:scale-95" 
             href="#cotizador"
-            className="inline-flex items-center space-x-2 bg-primary-container hover:bg-primary hover:text-white >Reservar Cita</span>
+            onClick={closeMenu}
+          >
+            <span className="material-symbols-outlined text-[16px] sm:text-[18px]">calendar_month</span>
+            <span className="hidden min-[400px]:inline">Reservar</span>
           </a>
-        </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-primary"
-          aria-label="Abrir menú"
-        >
-          <span className="material-symbols-outlined">
-            {menuOpen ? 'close' : 'menu'}
-          </span>
-        </button>
+          {/* Menú Hamburguesa (Solo Móvil) */}
+          <button 
+            className="md:hidden flex items-center justify-center p-2 rounded-full text-on-surface-variant hover:bg-on-surface-variant/10 transition-colors"
+            onClick={toggleMenu}
+            aria-label="Alternar menú"
+          >
+            <span className="material-symbols-outlined text-2xl">
+              {isMobileMenuOpen ? 'close' : 'menu'}
+            </span>
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden border-t border-outline-variant/30 bg-surface-container-lowest">
-          <nav className="flex flex-col px-4 py-4">
-
-            <a
-              href="#servicios"
-              className="py-3 text-on-surface"
-              on    <a
-              href="#doctor"
-              className="py-3 text-on-surface"
-              onClick={() => setMenuOpen(false)}
-  otizador"
-              className="py-3 font-semibold text-primary"
-              onClick={() => setMenuOpen(false)}
-            >
-             ext-on-surface"
-              onClick={() => setMenuOpen(false)}
-            >
-              Ubicación
-            </a>
-
-            <div className="flex         target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 border border-primary text-primary rounded-full py-3"
-              >
-                <span className="material-symbols-outlined">chat</span>
-                WhatsApp
-              </a>
-
-              <a
-                href="#cotizador"
-                className="flex items-center justify-center gap-2 bg-primary text-white rounded-full py-3"
-                onClick={() => setMenuOpen(false)}
-              >
-                  </div>
-          </nav>
+      {/* Dropdown de Navegación Móvil */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-20 left-0 w-full bg-surface-container-lowest border-b border-outline-variant/30 shadow-lg px-6 py-4 flex flex-col space-y-4">
+          <a className="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors py-2 border-b border-outline-variant/10" href="#servicios" onClick={closeMenu}>Servicios</a>
+          <a className="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors py-2 border-b border-outline-variant/10" href="#doctor" onClick={closeMenu}>Sobre el Doctor</a>
+          <a className="text-label-md font-label-md text-primary font-bold transition-colors py-2 border-b border-outline-variant/10" href="#cotizador" onClick={closeMenu}>Formulario</a>
+          <a className="text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors py-2" href="#ubicacion" onClick={closeMenu}>Ubicación</a>
+          
+          {/* Botón de WhatsApp incluido en el menú móvil para que no se pierda el acceso */}
+          <a 
+            className="flex items-center space-x-2 px-4 py-3 mt-4 rounded-full border border-primary/20 text-primary hover:bg-primary/5 transition-all w-fit" 
+            href="https://wa.me/523781181889" 
+            rel="noopener noreferrer" 
+            target="_blank"
+            onClick={closeMenu}
+          >
+            <span className="material-symbols-outlined">chat</span>
+            <span>Contactar por WhatsApp</span>
+          </a>
         </div>
       )}
     </header>
