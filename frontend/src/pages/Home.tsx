@@ -219,7 +219,7 @@ const Home: React.FC = () => {
               </div>
 
               <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <a className="inline-flex justify-center items-center space-x-3 px-5 py-3 rounded-full bg-surface-container-lowest border border-outline-variant/60 hover:border-primary text-on-surface hover:text-primary transition-all duration-200 custom-shadow-ambient" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+                <a className="inline-flex justify-center items-center space-x-3 px-5 py-3 rounded-full bg-surface-container-lowest border border-outline-variant/60 hover:border-primary text-on-surface hover:text-primary transition-all duration-200 custom-shadow-ambient" href="https://instagram.com/dentista.oliver" rel="noopener noreferrer" target="_blank">
                   <span className="material-symbols-outlined text-[20px] text-primary">photo_camera</span>
                   <span className="text-label-md font-label-md font-bold">@dentista.oliver</span>
                   <span className="text-body-sm font-body-sm text-on-surface-variant hidden sm:inline">| Ver Instagram</span>
