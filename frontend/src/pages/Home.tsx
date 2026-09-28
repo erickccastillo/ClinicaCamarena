@@ -225,7 +225,7 @@ const Home: React.FC = () => {
                 <div className="flex items-start space-x-3">
                   <span className="material-symbols-outlined text-primary text-[20px] mt-0.5">school</span>
                   <div>
-                    <p className="text-label-md font-label-md text-on-surface font-bold">Especialidad en Rehabilitación Oral</p>
+                    <p className="text-label-md font-label-md text-on-surface font-bold">Lic. Cirujano Dentista</p>
                     <p className="text-body-sm font-body-sm text-on-surface-variant">Universidad Nacional Autónoma de México</p>
                   </div>
                 </div>
