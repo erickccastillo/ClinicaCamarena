@@ -392,7 +392,7 @@ const Home: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-label-sm font-label-sm text-on-surface-variant uppercase font-bold">Horarios</p>
-                    <p className="text-body-sm font-body-sm text-on-surface">Lun-Vie: 09:00-19:00 | Sáb: 09:00-14:00</p>
+                    <p className="text-body-sm font-body-sm text-on-surface">Lun-Vie: 09:00-20:00 | Sáb: 09:00-16:00</p>
                   </div>
                 </div>
               </div>
