@@ -1,9 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+// Importaciones de imágenes desde la carpeta de assets/images
+import doctorHero from '../images/doctor-hero.jpg';
+import doctorProfile from '../images/doctor-profile.jpg';
 
 const Home: React.FC = () => {
+  // Estado para controlar el formulario
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    treatment: 'diseno',
+    comments: '',
+    privacy: false,
+  });
+
+  // Manejador de cambios en los inputs
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
+    
+    // Tratamiento especial para el checkbox
+    if (type === 'checkbox') {
+      const { checked } = e.target as HTMLInputElement;
+      setFormData((prev) => ({ ...prev, [name]: checked }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  // Manejador del envío del formulario
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    // Aquí puedes realizar la llamada a tu API, backend o servicio (ej. EmailJS)
+    console.log('Datos enviados:', formData);
+    
     alert('¡Gracias! En breve nos pondremos en contacto contigo.');
+    
+    // Limpiar formulario opcionalmente
+    setFormData({
+      name: '',
+      phone: '',
+      email: '',
+      treatment: 'diseno',
+      comments: '',
+      privacy: false,
+    });
   };
 
   return (
@@ -36,7 +78,8 @@ const Home: React.FC = () => {
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 <div className="absolute -inset-4 bg-gradient-to-tr from-primary-fixed/40 to-secondary-fixed/30 rounded-3xl filter blur-2xl opacity-60"></div>
                 <div className="relative rounded-2xl overflow-hidden custom-shadow-ambient border border-outline-variant/40 bg-surface-container-lowest">
-                  <img className="w-full h-[460px] object-cover" alt="Dr. Gabriel Ruiz" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtfCzd5LGwnyGupL0_2ne82JKmE8sMeCzdk6oMqtXuabYaXZ4ZTtaMRlla7ZXd6R_yjDixXy7CYXgtBKwgwzY6TCVjjdT1l5xfGU35mj9WIKztZcfmzoS-JXWpK0s5Ad0OaVESUGTuULRt4HClniuvl6g3aVXA7_pnlZSxrdOfVQVN2Wz-pqzHRQYeORCbaD4YmNC0CVSx-QTzN0HTRcIg3whj03v4ySZjO9dzQYFkpay7oFqrnPw-" />
+                  {/* Uso de imagen importada */}
+                  <img className="w-full h-[460px] object-cover" alt="Dr. Gabriel Ruiz" src={doctorHero} />
                   <div className="absolute inset-0 bg-gradient-to-t from-inverse-surface/60 via-transparent to-transparent"></div>
                   <div className="absolute bottom-6 left-6 right-6 text-on-primary">
                     <p className="text-title-md font-title-md font-bold">C. D. Oliver Camarena</p>
@@ -165,7 +208,8 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-5 space-y-6">
               <div className="relative rounded-2xl overflow-hidden border border-outline-variant/40 custom-shadow-ambient">
-                <img className="w-full h-[520px] object-cover" alt="Doctor Gabriel Ruiz" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkXHVD6WsGPxvZlVhpKwvrq0yRR0tnj2Ht4DJTCCvogQQ1h7fPRJtsda_60nvlhSmiWbQ9MMbZyCKVzzME-4Tt4YIA_KhnKiloFd2e4YKRDiSyR0DWKW3U3GyCwRJpZe0KMJ2pGOOPh3wuND1UM1g1pS3Dd_okmN1FR3_iGCNDusKzLCmF2aNm-agSglMYuGVBUjECPXSYMOQOR4R0WuoXWkPiR9GK3bsKU4zcOrnpefPi383TBns5" />
+                {/* Uso de imagen importada */}
+                <img className="w-full h-[520px] object-cover" alt="Doctor Gabriel Ruiz" src={doctorProfile} />
               </div>
             </div>
             <div className="lg:col-span-7 space-y-6">
@@ -190,8 +234,8 @@ const Home: React.FC = () => {
               <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <a className="inline-flex items-center space-x-3 px-5 py-3 rounded-full bg-surface-container-lowest border border-outline-variant/60 hover:border-primary text-on-surface hover:text-primary transition-all duration-200 custom-shadow-ambient" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
                   <span className="material-symbols-outlined text-[20px] text-primary">photo_camera</span>
-                  <span className="text-label-md font-label-md font-bold">@olivercamarena.dental</span>
-                  <span className="text-body-sm font-body-sm text-on-surface-variant">| Ver casos clínicos y sonrisas</span>
+                  <span className="text-label-md font-label-md font-bold">@dentista.oliver</span>
+                  <span className="text-body-sm font-body-sm text-on-surface-variant">| Ver Instagram</span>
                 </a>
               </div>
             </div>
@@ -211,60 +255,100 @@ const Home: React.FC = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-7 bg-surface-container-lowest p-8 md:p-10 rounded-2xl border border-outline-variant/40 custom-shadow-ambient">
+              
+              {/* Formulario conectado al estado local */}
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="block text-label-md font-label-md text-on-surface font-semibold" htmlFor="name">Nombre Completo *</label>
-                    <input className="w-full h-12 px-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" id="name" placeholder="Ej. Mariana Morales" required type="text" />
+                    <input 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full h-12 px-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" 
+                      id="name" 
+                      placeholder="Ej. Mariana Morales" 
+                      required 
+                      type="text" 
+                    />
                   </div>
                   <div className="space-y-2">
                     <label className="block text-label-md font-label-md text-on-surface font-semibold" htmlFor="phone">Teléfono / WhatsApp *</label>
-                    <input className="w-full h-12 px-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" id="phone" placeholder="Ej. +52 55 1234 5678" required type="tel" />
+                    <input 
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full h-12 px-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" 
+                      id="phone" 
+                      placeholder="Ej. +52 55 1234 5678" 
+                      required 
+                      type="tel" 
+                    />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
                   <label className="block text-label-md font-label-md text-on-surface font-semibold" htmlFor="email">Correo Electrónico</label>
-                  <input className="w-full h-12 px-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" id="email" placeholder="mariana@ejemplo.com" type="email" />
+                  <input 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full h-12 px-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" 
+                    id="email" 
+                    placeholder="mariana@ejemplo.com" 
+                    type="email" 
+                  />
                 </div>
 
                 <div className="space-y-3">
                   <label className="block text-label-md font-label-md text-on-surface font-semibold">Tratamiento de Interés *</label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-                    <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
-                      <input defaultChecked className="hidden" name="treatment" type="radio" value="diseno" />
-                      <span>Diseño de Sonrisa</span>
-                    </label>
-                    <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
-                      <input className="hidden" name="treatment" type="radio" value="ortodoncia" />
-                      <span>Ortodoncia Invisible</span>
-                    </label>
-                    <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
-                      <input className="hidden" name="treatment" type="radio" value="blanqueamiento" />
-                      <span>Blanqueamiento</span>
-                    </label>
-                    <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
-                      <input className="hidden" name="treatment" type="radio" value="implantes" />
-                      <span>Implantes Dentales</span>
-                    </label>
-                    <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
-                      <input className="hidden" name="treatment" type="radio" value="limpieza" />
-                      <span>Limpieza Dental</span>
-                    </label>
-                    <label className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
-                      <input className="hidden" name="treatment" type="radio" value="otro" />
-                      <span>Valoración General</span>
-                    </label>
+                    {[
+                      { value: 'diseno', label: 'Diseño de Sonrisa' },
+                      { value: 'ortodoncia', label: 'Ortodoncia Invisible' },
+                      { value: 'blanqueamiento', label: 'Blanqueamiento' },
+                      { value: 'implantes', label: 'Implantes Dentales' },
+                      { value: 'limpieza', label: 'Limpieza Dental' },
+                      { value: 'otro', label: 'Valoración General' }
+                    ].map((option) => (
+                      <label key={option.value} className="flex items-center justify-center p-3 rounded-lg border border-outline-variant/80 text-on-surface hover:border-primary cursor-pointer has-[:checked]:bg-primary-container has-[:checked]:text-on-primary has-[:checked]:border-primary transition-all text-label-sm font-label-sm text-center">
+                        <input 
+                          className="hidden" 
+                          name="treatment" 
+                          type="radio" 
+                          value={option.value}
+                          checked={formData.treatment === option.value}
+                          onChange={handleChange}
+                        />
+                        <span>{option.label}</span>
+                      </label>
+                    ))}
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <label className="block text-label-md font-label-md text-on-surface font-semibold" htmlFor="comments">Comentarios o Dudas Adicionales</label>
-                  <textarea className="w-full p-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" id="comments" placeholder="Cuéntanos sobre tus objetivos o si experimentas alguna molestia..." rows={3}></textarea>
+                  <textarea 
+                    name="comments"
+                    value={formData.comments}
+                    onChange={handleChange}
+                    className="w-full p-4 rounded-lg bg-surface border border-outline-variant/80 text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-md font-body-md" 
+                    id="comments" 
+                    placeholder="Cuéntanos sobre tus objetivos o si experimentas alguna molestia..." 
+                    rows={3}
+                  ></textarea>
                 </div>
 
                 <div className="flex items-start space-x-3">
-                  <input className="mt-1 w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant" id="privacy" required type="checkbox" />
+                  <input 
+                    name="privacy"
+                    checked={formData.privacy}
+                    onChange={handleChange}
+                    className="mt-1 w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant" 
+                    id="privacy" 
+                    required 
+                    type="checkbox" 
+                  />
                   <label className="text-body-sm font-body-sm text-on-surface-variant" htmlFor="privacy">
                     Acepto el tratamiento de mis datos de acuerdo con el aviso de privacidad de la clínica.
                   </label>
@@ -349,7 +433,7 @@ const Home: React.FC = () => {
                 </div>
               </div>
               <div className="pt-4">
-                <a className="inline-flex items-center space-x-2 text-label-md font-label-md text-primary font-bold hover:text-tertiary" href="https://maps.google.com" rel="noopener noreferrer" target="_blank">
+                <a className="inline-flex items-center space-x-2 text-label-md font-label-md text-primary font-bold hover:text-tertiary" href="https://maps.app.goo.gl/TU_ENLACE_AQUI" rel="noopener noreferrer" target="_blank">
                   <span className="material-symbols-outlined text-[18px]">map</span>
                   <span>Abrir en Google Maps</span>
                 </a>
@@ -358,8 +442,21 @@ const Home: React.FC = () => {
 
             <div className="lg:col-span-7">
               <div className="relative rounded-2xl overflow-hidden border border-outline-variant/40 custom-shadow-ambient h-[440px] bg-surface-container">
-                <img className="w-full h-full object-cover" alt="Map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNTpx25uSTOBuiLxpCxM2jWjmQvdwg8FUYTtsL4rzZwECHMMZZYE3qNmbZ7QoFwe-PMkrS4BY40tZYWSRG5mSXpWTH2yt3bv9sSJ8jyCqffjB_O2De4jsFeuWJOJkTMOf5KdIecap6QFLlUjcQ_GXGFDvksEiw9aZTx5jJMXz4Xb7RKHW3UvzYmidRL-oY6Al17gzWJQKJYdPJ8DaEGcTCmxDxf-TC0k3WdoLR4ycUsMCNKeFWZKAT" />
-                <div className="absolute bottom-6 left-6 right-6 md:right-auto md:w-80 bg-surface-container-lowest/95 backdrop-blur-md p-5 rounded-xl border border-outline-variant/40 custom-shadow-glow">
+                
+                {/* Integración del iframe de Google Maps */}
+                <iframe
+                  src="https://maps.google.com/maps?q=Joaqu%C3%ADn%20Angulo%201855,%20Guadalajara,%20Jalisco&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Ubicación C.D. Oliver Camarena"
+                  className="w-full h-full absolute inset-0"
+                ></iframe>
+                
+                <div className="absolute bottom-6 left-6 right-6 md:right-auto md:w-80 bg-surface-container-lowest/95 backdrop-blur-md p-5 rounded-xl border border-outline-variant/40 custom-shadow-glow pointer-events-none">
                   <div className="flex items-center space-x-3">
                     <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary">
                       <span className="material-symbols-outlined text-[20px]">dentistry</span>
@@ -399,7 +496,7 @@ const Home: React.FC = () => {
               C. D. Oliver Camarena
             </a>
             <p className="text-body-sm font-body-sm text-on-surface-variant max-w-md">
-              © 2024 C. D. Oliver Camarena - Odontología Integral Estética. Todos los derechos reservados.
+              © 2026 C. D. Oliver Camarena - Odontología Integral Estética. Todos los derechos reservados.
             </p>
           </div>
           
@@ -413,13 +510,11 @@ const Home: React.FC = () => {
           </div>
           
           <div className="flex items-center space-x-4">
-            <a aria-label="Instagram" className="w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+            <a aria-label="Instagram" className="w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="https://instagram.com/dentista.oliver" rel="noopener noreferrer" target="_blank">
               <span className="material-symbols-outlined text-[18px]">photo_camera</span>
             </a>
-            <a aria-label="Facebook" className="w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="https://facebook.com" rel="noopener noreferrer" target="_blank">
-              <span className="material-symbols-outlined text-[18px]">share</span>
-            </a>
-            <a aria-label="LinkedIn" className="w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="https://linkedin.com" rel="noopener noreferrer" target="_blank">
+
+            <a aria-label="LinkedIn" className="w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="https://linkedin.com/in/oliver-camarena-007995191" rel="noopener noreferrer" target="_blank">
               <span className="material-symbols-outlined text-[18px]">work</span>
             </a>
             <a aria-label="WhatsApp" className="w-9 h-9 rounded-full bg-surface-container-lowest border border-outline-variant/50 flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all" href="https://wa.me/523781181889" rel="noopener noreferrer" target="_blank">
